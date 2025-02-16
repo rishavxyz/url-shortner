@@ -1,13 +1,14 @@
 <script lang="ts">
-	import '../app.css';
-	import '@fontsource-variable/bitter'
 	import '@fontsource-variable/inter'
-	import '@fontsource/material-symbols-rounded'
-	import { Toaster } from 'svelte-sonner';
+	import '@fontsource-variable/stix-two-text'
+	import '@fontsource-variable/material-symbols-rounded'
+	import '../app.css'
 
-	let { children } = $props();
+	import { Toaster } from 'svelte-sonner'
+
+	let { children } = $props()
 </script>
 
 {@render children()}
 
-<Toaster />
+<Toaster position="top-center" />

@@ -1,20 +1,79 @@
 @import 'tailwindcss';
+@plugin 'daisyui' {
+	themes:
+		nord --default,
+		sunset --prefersdark;
+}
 
 @theme {
-  --text-2xs: clamp(0.576rem, 0.5796rem + -0.0047vw, 0.5787rem);
-  --text-xs: clamp(0.6944rem, 0.6856rem + 0.0444vw, 0.72rem);
-  --text-sm: clamp(0.8333rem, 0.8101rem + 0.1159vw, 0.9rem);
-  --text-base: clamp(1rem, 0.9565rem + 0.2174vw, 1.125rem);
-  --text-md: clamp(1.2rem, 1.1283rem + 0.3587vw, 1.4063rem);
-  --text-lg: clamp(1.44rem, 1.3295rem + 0.5527vw, 1.7578rem);
-  --text-xl: clamp(1.728rem, 1.5648rem + 0.8161vw, 2.1973rem);
-  --text-2xl: clamp(2.0736rem, 1.8395rem + 1.1704vw, 2.7466rem);
-  --text-3xl: clamp(2.4883rem, 2.1597rem + 1.6433vw, 3.4332rem);
-  --text-4xl: clamp(2.986rem, 2.5319rem + 2.2705vw, 4.2915rem);
-  --text-5xl: clamp(3.5832rem, 2.9636rem + 3.0978vw, 5.3644rem);
-  --text-6xl: clamp(4.2998rem, 3.463rem + 4.1838vw, 6.7055rem);
+	--font-sans: 'Inter Variable', var(--default-font-family);
+	--font-body: var(--font-sans);
+	--font-serif: 'STIX Two Text Variable', serif;
+	--font-icon: 'Material Symbols Rounded Variable', var(--font-sans);
 
-  --font-sans:  'Inter Variable', sans-serif;
-  --font-serif: 'Bitter Variable', serif;
-  --font-icon: 'Material Symbols Rounded', sans-serif;
+	/* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,18,1.25,5,2,&s=0.75|0.5|0.25|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+	--spacing-f3xs: clamp(0.25rem, 0.2283rem + 0.1087vw, 0.3125rem);
+	--spacing-f2xs: clamp(0.25rem, 0.2283rem + 0.1087vw, 0.3125rem);
+	--spacing-fxs: clamp(0.5rem, 0.4783rem + 0.1087vw, 0.5625rem);
+	--spacing-fsm: clamp(0.75rem, 0.7065rem + 0.2174vw, 0.875rem);
+	--spacing-fbase: clamp(1rem, 0.9565rem + 0.2174vw, 1.125rem);
+	--spacing-fmd: clamp(1.5rem, 1.4348rem + 0.3261vw, 1.6875rem);
+	--spacing-flg: clamp(2rem, 1.913rem + 0.4348vw, 2.25rem);
+	--spacing-fxl: clamp(3rem, 2.8696rem + 0.6522vw, 3.375rem);
+	--spacing-f2xl: clamp(4rem, 3.8261rem + 0.8696vw, 4.5rem);
+	--spacing-f3xl: clamp(6rem, 5.7391rem + 1.3043vw, 6.75rem);
+	/* One-up pairs */
+	--spacing-f4xs\/3xs: clamp(0.25rem, 0.2283rem + 0.1087vw, 0.3125rem);
+	--spacing-f3xs\/2xs: clamp(0.25rem, 0.1413rem + 0.5435vw, 0.5625rem);
+	--spacing-f2xs\/xs: clamp(0.5rem, 0.3696rem + 0.6522vw, 0.875rem);
+	--spacing-fxs\/sm: clamp(0.75rem, 0.6196rem + 0.6522vw, 1.125rem);
+	--spacing-fsm\/md: clamp(1rem, 0.7609rem + 1.1957vw, 1.6875rem);
+	--spacing-fmd\/lg: clamp(1.5rem, 1.2391rem + 1.3043vw, 2.25rem);
+	--spacing-flg\/xl: clamp(2rem, 1.5217rem + 2.3913vw, 3.375rem);
+	--spacing-fxl\/2xl: clamp(3rem, 2.4783rem + 2.6087vw, 4.5rem);
+	--spacing-f2xl\/3xl: clamp(4rem, 3.0435rem + 4.7826vw, 6.75rem);
+
+	/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,18,1.25,4,3,&s=0.75|0.5|0.25|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+	--text-f2xs: clamp(0.576rem, 0.5796rem + -0.0047vw, 0.5787rem);
+	--text-fxs: clamp(0.6944rem, 0.6856rem + 0.0444vw, 0.72rem);
+	--text-fsm: clamp(0.8333rem, 0.8101rem + 0.1159vw, 0.9rem);
+	--text-base: clamp(1rem, 0.9565rem + 0.2174vw, 1.125rem);
+	--text-fmd: clamp(1.2rem, 1.1283rem + 0.3587vw, 1.4063rem);
+	--text-flg: clamp(1.44rem, 1.3295rem + 0.5527vw, 1.7578rem);
+	--text-fxl: clamp(1.728rem, 1.5648rem + 0.8161vw, 2.1973rem);
+	--text-f2xl: clamp(2.0736rem, 1.8395rem + 1.1704vw, 2.7466rem);
+}
+
+html {
+	font-size: var(--text-base);
+}
+
+.text-input {
+	@apply input p-fsm/md w-full text-base transition-colors focus-within:outline-0;
+}
+
+.heading {
+	font-weight: 674;
+	font-family: var(--font-serif);
+}
+
+.heading.h1 {
+	font-size: var(--text-fxl);
+}
+
+.heading.h2 {
+	font-size: var(--text-flg);
+}
+
+.heading.h3 {
+	font-size: var(--text-fmd);
+}
+
+.heading.h6 {
+	font-size: var(--text-base);
+}
+
+.btn {
+	@apply w-full md:w-auto;
+	font-family: var(--font-serif);
 }

@@ -1,3 +1,2 @@
-import { SvelteMap } from 'svelte/reactivity'
-
-export const LINKS = new SvelteMap<string, string>()
+export const LINKS = new Map<string, string>()
+export const CUSTOM_LINKS = new Set<string>()
